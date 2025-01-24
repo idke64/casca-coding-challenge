@@ -15,7 +15,7 @@
 <div class="rounded border bg-bg-2 p-6">
 	<div class="flex h-full flex-col gap-3">
 		<h5>Analysis Details</h5>
-		<div class="flex h-full flex-col justify-between gap-y-1.5">
+		<div class="flex h-full flex-col gap-y-1">
 			<p class="flex justify-between text-right">
 				<span class="min-w-[110px] truncate text-left font-medium text-text-2">Validity:</span>
 				{#if valid}

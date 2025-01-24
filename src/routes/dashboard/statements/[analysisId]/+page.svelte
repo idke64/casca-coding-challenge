@@ -29,7 +29,7 @@
 					<TotalCard
 						color="green"
 						amount={analysis.summary.deposits}
-						message="Deposits"
+						message="Value of Deposits"
 						currency={analysis.account_details.currency}
 					/>
 					<TotalCard

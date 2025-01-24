@@ -37,7 +37,7 @@
 <div class="rounded border bg-bg-2 p-6">
 	<div class="flex flex-col gap-3">
 		<h5>Evaluation</h5>
-		<div class="-mb-14 -mt-2 flex h-40 w-full">
+		<div class="-mb-12 flex h-40 w-full">
 			<Chart>
 				<Svg center>
 					<Group y={16}>
