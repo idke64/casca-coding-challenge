@@ -6,7 +6,7 @@
 	import { TransactionHistory } from '$lib/components';
 	import { TotalCard } from '$lib/components';
 	import { Transactions } from '$lib/components';
-	import BillsByProvider from '$lib/components/visuals/BillsByProvider.svelte';
+	import { BillsByProvider } from '$lib/components';
 
 	let { data } = $props();
 	let analysis = $derived(data.analysis);

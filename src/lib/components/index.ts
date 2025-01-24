@@ -7,6 +7,7 @@ export { default as SideBar } from './SideBar.svelte';
 export { default as AnalysisDetails } from './visuals/AnalysisDetails.svelte';
 export { default as Evaluation } from './visuals/Evaluation.svelte';
 export { default as BillsByCategory } from './visuals/BillsByCategory.svelte';
+export { default as BillsByProvider } from './visuals/BillsByProvider.svelte';
 export { default as TransactionHistory } from './visuals/TransactionHistory.svelte';
 export { default as BalanceHistory } from './visuals/BalanceHistory.svelte';
 export { default as Transactions } from './visuals/Transactions.svelte';
