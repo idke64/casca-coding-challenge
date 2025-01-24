@@ -170,13 +170,9 @@ export const POST: RequestHandler = async ({ request, locals: { supabase, user }
 				.replace(/\s*```\s*$/, '')
 				.trim();
 
-			console.log(cleanedText);
-
 			const output: Output = JSON.parse(cleanedText);
 
 			const { valid, statement }: Analysis = outputToJson(output);
-
-			console.log(statement.transactions);
 
 			statement.transactions = statement.transactions.sort(
 				(a, b) => a.date.getTime() - b.date.getTime()
