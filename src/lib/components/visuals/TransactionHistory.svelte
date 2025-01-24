@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatCurrency } from '$lib/utils';
+	import { formatCurrency, sameDay } from '$lib/utils';
 	import { BarChart } from 'layerchart';
 	import { onMount } from 'svelte';
 	let { transactions, currency = 'USD' } = $props();
@@ -11,6 +11,8 @@
 	}
 
 	let transactionHistory: TransactionDate[] = $state([]);
+
+	console.log(transactions);
 
 	let tickInterval = $state(0);
 
@@ -31,23 +33,26 @@
 			let withdrawals = 0;
 			while (
 				currTransactionIndex < transactions.length &&
-				new Date(transactions[currTransactionIndex].date).getTime() === currDate.getTime()
+				sameDay(new Date(transactions[currTransactionIndex].date), currDate)
 			) {
 				const amount = transactions[currTransactionIndex].amount;
 				if (amount > 0) {
-					deposits += amount;
+					deposits += Number(amount);
 				} else {
-					withdrawals += amount;
+					withdrawals += Number(amount);
 				}
 				currTransactionIndex++;
 			}
+			// console.log(deposits, withdrawals, currDate.getTime(), lastDate.getTime());
 			transactionHistory.push({
 				date: new Date(currDate.getTime()),
 				deposit: deposits,
 				withdrawal: withdrawals
 			});
 			currDate.setDate(currDate.getDate() + 1);
+			console.log;
 		}
+		// console.log(transactionHistory);
 	});
 </script>
 

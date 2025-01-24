@@ -1,1 +1,1 @@
-export { getFileIcon, getFileExtension, formatCurrency } from './functions';
+export { getFileIcon, getFileExtension, formatCurrency, sameDay } from './functions';

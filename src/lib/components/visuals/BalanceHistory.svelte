@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatCurrency } from '$lib/utils';
+	import { formatCurrency, sameDay } from '$lib/utils';
 	import { LineChart } from 'layerchart';
 	import { onMount } from 'svelte';
 	let { transactions, currency = 'USD' } = $props();
@@ -33,7 +33,7 @@
 
 		while (currDate.getTime() <= lastDate.getTime()) {
 			let exists = false;
-			while (new Date(transactions[currTransactionIndex].date).getTime() === currDate.getTime()) {
+			while (sameDay(new Date(transactions[currTransactionIndex].date), currDate)) {
 				exists = true;
 				if (currTransactionIndex == transactions.length - 1) {
 					balanceHistory.push({

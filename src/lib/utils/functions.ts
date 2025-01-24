@@ -17,11 +17,19 @@ export const getFileExtension = (filename: string): string => {
 	return filename.split('.').pop()?.toLowerCase() || '';
 };
 
-export const formatCurrency = (amount: number, currency: string) => {
+export const formatCurrency = (amount: number, currency: string): string => {
 	return amount.toLocaleString('en-US', {
 		style: 'currency',
 		currency: currency,
 		minimumFractionDigits: 2,
 		maximumFractionDigits: 2
 	});
+};
+
+export const sameDay = (date1: Date, date2: Date): boolean => {
+	return (
+		date1.getFullYear() === date2.getFullYear() &&
+		date1.getMonth() === date2.getMonth() &&
+		date1.getDate() === date2.getDate()
+	);
 };
