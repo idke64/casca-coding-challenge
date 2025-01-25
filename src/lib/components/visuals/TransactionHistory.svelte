@@ -43,16 +43,13 @@
 				}
 				currTransactionIndex++;
 			}
-			// console.log(deposits, withdrawals, currDate.getTime(), lastDate.getTime());
 			transactionHistory.push({
 				date: new Date(currDate.getTime()),
 				deposit: deposits,
 				withdrawal: withdrawals
 			});
 			currDate.setDate(currDate.getDate() + 1);
-			console.log;
 		}
-		// console.log(transactionHistory);
 	});
 </script>
 

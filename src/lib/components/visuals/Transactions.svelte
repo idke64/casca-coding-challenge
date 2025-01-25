@@ -12,15 +12,19 @@
 	let averageMonthlyWithdrawals: number = $state(0);
 
 	onMount(() => {
-		totalDeposits = transactions
-			.filter((t: Transaction) => t.amount > 0)
-			.reduce((sum: number, t: Transaction) => sum + t.amount, 0);
+		totalDeposits = transactions.reduce((acc: number, t: Transaction) => {
+			if (t.amount > 0) {
+				return acc + 1;
+			}
+			return acc;
+		}, 0);
 
-		totalWithdrawals = Math.abs(
-			transactions
-				.filter((t: Transaction) => t.amount < 0)
-				.reduce((sum: number, t: Transaction) => sum + t.amount, 0)
-		);
+		totalWithdrawals = transactions.reduce((acc: number, t: Transaction) => {
+			if (t.amount < 0) {
+				return acc + 1;
+			}
+			return acc;
+		}, 0);
 
 		const firstDate = new Date(transactions[0].date);
 		const lastDate = new Date(transactions[transactions.length - 1].date);
@@ -29,7 +33,6 @@
 			(lastDate.getMonth() - firstDate.getMonth()) +
 			1;
 
-		// Calculate monthly averages
 		averageMonthlyDeposits = totalDeposits / monthsDiff;
 		averageMonthlyWithdrawals = totalWithdrawals / monthsDiff;
 	});
@@ -68,25 +71,25 @@
 			<p class="flex justify-between text-right">
 				<span class="min-w-[110px] truncate text-left font-medium text-text-2">Total Deposits:</span
 				>
-				<span class="truncate">{formatCurrency(totalDeposits, currency)}</span>
+				<span class="truncate">{totalDeposits}</span>
 			</p>
 			<p class="flex justify-between text-right">
 				<span class="min-w-[110px] truncate text-left font-medium text-text-2"
 					>Total Withdrawals:</span
 				>
-				<span class="truncate">{formatCurrency(totalWithdrawals, currency)}</span>
+				<span class="truncate">{totalWithdrawals}</span>
 			</p>
 			<p class="flex justify-between text-right">
 				<span class="min-w-[110px] truncate text-left font-medium text-text-2"
 					>Average Monthly Deposits:</span
 				>
-				<span class="truncate">{formatCurrency(averageMonthlyDeposits, currency)}</span>
+				<span class="truncate">{averageMonthlyDeposits}</span>
 			</p>
 			<p class="flex justify-between text-right">
 				<span class="min-w-[110px] truncate text-left font-medium text-text-2"
 					>Average Monthly Withdrawals:</span
 				>
-				<span class="truncate">{formatCurrency(averageMonthlyWithdrawals, currency)}</span>
+				<span class="truncate">{averageMonthlyWithdrawals}</span>
 			</p>
 		</div>
 	</div>
