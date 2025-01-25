@@ -8,7 +8,7 @@
 	<div class="flex h-full flex-col gap-3">
 		<h5>Loan Payments</h5>
 		{#if loanPayments.length > 0}
-			<div class="flex h-[100%] w-full flex-col gap-y-4 overflow-scroll rounded border">
+			<div class="flex h-full w-full flex-col gap-y-4 overflow-scroll rounded border">
 				<table>
 					<thead>
 						<tr>

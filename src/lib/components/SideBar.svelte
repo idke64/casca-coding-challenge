@@ -15,8 +15,8 @@
 	$effect(() => {
 		yPosition = (() => {
 			const path = page.url.pathname;
-			if (path.includes('/dashboard/upload')) return '85px';
-			if (path.includes('/dashboard/statements')) return '130px';
+			if (path.includes('/dashboard/upload')) return '70px';
+			if (path.includes('/dashboard/statements')) return '114px';
 			return '85px';
 		})();
 	});
@@ -27,7 +27,7 @@
 	transition:fly={{ x: -10, duration: 200 }}
 >
 	<div class="flex h-full w-full flex-col items-center justify-between py-4 text-text-3">
-		<div class="flex w-full flex-col gap-y-2">
+		<div class="relative flex w-full flex-col gap-y-2">
 			<div class="flex w-full items-center gap-x-2 rounded px-3 pb-3 pt-2">
 				<div class="mt-1 aspect-square h-5/6 rounded bg-blue-500"></div>
 				<div class="flex flex-col">

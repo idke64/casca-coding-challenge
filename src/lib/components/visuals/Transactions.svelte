@@ -33,15 +33,15 @@
 			(lastDate.getMonth() - firstDate.getMonth()) +
 			1;
 
-		averageMonthlyDeposits = totalDeposits / monthsDiff;
-		averageMonthlyWithdrawals = totalWithdrawals / monthsDiff;
+		averageMonthlyDeposits = Math.round(totalDeposits / monthsDiff);
+		averageMonthlyWithdrawals = Math.round(totalWithdrawals / monthsDiff);
 	});
 </script>
 
-<div class="overflow-hidden rounded border bg-bg-2 p-6">
-	<div class="flex flex-col gap-3">
+<div class="h-full overflow-hidden rounded border bg-bg-2 p-6">
+	<div class="flex h-full flex-col gap-3">
 		<h5>Transactions</h5>
-		<div class="flex h-[488.5px] flex-col gap-y-4 overflow-scroll rounded border">
+		<div class="flex h-[489.33px] w-full flex-col gap-y-4 overflow-scroll rounded border">
 			<table>
 				<thead>
 					<tr>
@@ -54,7 +54,7 @@
 					{#each transactions as transaction}
 						<tr>
 							<td>{new Date(transaction.date).toLocaleDateString()}</td>
-							<td>{transaction.description}</td>
+							<td class="max-w-40 truncate whitespace-nowrap">{transaction.description}</td>
 							<td
 								><span
 									class="{transaction.amount > 0 ? 'text-green-500' : 'text-red-500'} font-bold"

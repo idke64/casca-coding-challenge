@@ -16,8 +16,6 @@
 				theme.value = 'dark';
 			}
 
-			console.log(theme.value);
-
 			secondSpin = true;
 		} else {
 			secondSpin = false;
